@@ -14,6 +14,10 @@ elif [[ "${2##*.}" = "zip" ]]; then
   mv $2 /tmp/sketch.zip
 fi
 
+# LOCALES
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 echo out > /sys/class/gpio/gpio25/direction
 echo 1 > /sys/class/gpio/gpio25/value
 
