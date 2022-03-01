@@ -29,13 +29,13 @@ sleep 3
 
 port=${1}
 
-# bossac actual upload
+# nRF52 actual upload
 echo "upload port is $1"
 adafruit-nrfutil --verbose dfu serial -pkg "/tmp/sketch.zip" -p ${port} -b 115200 --singlebank
 
 rc=$?
 
-rm /tmp/sketch.bin
+rm /tmp/sketch.zip
 
 echo in > /sys/class/gpio/gpio25/direction
 
