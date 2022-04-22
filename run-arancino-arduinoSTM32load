@@ -12,9 +12,6 @@ elif [[ "${2##*.}" = "bin" ]]; then
   mv $2 /tmp/sketch.bin
 fi
 
-echo out > /sys/class/gpio/gpio25/direction
-echo 1 > /sys/class/gpio/gpio25/value
-
 sleep 3
 
 # Arduino 1200 baud trick
@@ -30,7 +27,5 @@ arduinoSTM32load -dfu /usr/bin -bin "/tmp/sketch.bin" -port=${port} -v
 rc=$?
 
 rm /tmp/sketch.bin
-
-echo in > /sys/class/gpio/gpio25/direction
 
 exit $rc

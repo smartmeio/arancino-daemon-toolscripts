@@ -18,9 +18,6 @@ fi
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 
-echo out > /sys/class/gpio/gpio25/direction
-echo 1 > /sys/class/gpio/gpio25/value
-
 sleep 3
 
 # Arduino 1200 baud trick
@@ -36,7 +33,5 @@ adafruit-nrfutil --verbose dfu serial -pkg "/tmp/sketch.zip" -p ${port} -b 11520
 rc=$?
 
 rm /tmp/sketch.zip
-
-echo in > /sys/class/gpio/gpio25/direction
 
 exit $rc
